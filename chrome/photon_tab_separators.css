@@ -1,0 +1,52 @@
+/* Tab separators */
+
+.titlebar-spacer[type="pre-tabs"] {
+  border-inline-end: 1px solid var(--lwt-background-tab-separator-color, currentColor);
+  opacity: 0.2;
+}
+
+.tabbrowser-tab::after,
+.tabbrowser-tab::before {
+  border-left: 1px solid var(--lwt-background-tab-separator-color, currentColor);
+  margin-block: 5px 4px;
+  opacity: 0.3;
+}
+
+/* Move the ::before pseudo-element on tabs 1px to the left
+ * to avoid resizing the tab when the pseudo-element is removed again
+ * (this currently happens when a tab is dragged and dropped).
+ *
+ * Note that this doesn't perfectly solve the issue (dragged tabs
+ * may still resize very slightly) on some DPI settings with uneven
+ * scaling factors on Windows, because of bug 477157.
+ */
+.tabbrowser-tab::before {
+  margin-inline-start: -1px;
+}
+
+:root[tabsintitlebar]:not([extradragspace]) .tabbrowser-tab::after,
+/* Show full height tab separators on hover and multiselection. */
+.tabbrowser-tab:hover::after,
+#tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[beforehovered]::after,
+.tabbrowser-tab[multiselected]::after,
+#tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[before-multiselected]::after {
+  margin-top: var(--tabs-top-border-width);
+  margin-bottom: 0;
+}
+
+/* Show full height tab separators on selected tabs. */
+#tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[beforeselected-visible]::after,
+#tabbrowser-tabs[movingtab] > #tabbrowser-arrowscrollbox > .tabbrowser-tab[visuallyselected]::before,
+.tabbrowser-tab[visuallyselected]::after {
+  border-color: var(--tabs-border-color);
+  margin-top: 0;
+  margin-bottom: var(--tabs-navbar-shadow-size);
+  opacity: 1;
+}
+
+.tabbrowser-tab::after,
+/* Also show separators beside the selected tab when dragging it. */
+#tabbrowser-tabs[movingtab] > #tabbrowser-arrowscrollbox > .tabbrowser-tab[visuallyselected]::before {
+  content: "";
+  display: block;
+}

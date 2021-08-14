@@ -1,0 +1,43 @@
+/* ### ###    PhotonUI Sharp Tabs, Non floating    ### ### */
+@import "non_floating_sharp_tabs.css";
+@import "photon_tab_separators.css";
+@import "iconized_main_menu.css";
+@import "tab_line_loading_indicator.css";
+
+/* Enable urlbar border when focused */
+#urlbar:focus-within > #urlbar-background {
+    border-color: -moz-accent-color !important;
+    border-width: 1px !important;
+}
+
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
+  /* Disable gap between the last pinned tab and the first visible tab */
+  margin-inline-start: 0 !important;
+}
+
+/* No need, can be set with browser.tabs.tabMinWidth
+ * ref: https://support.mozilla.org/en-US/questions/1253108
+#tabbrowser-tabs {
+  --tab-min-width: 76px;
+}
+*/
+
+/* Disable tab label mask on hover */
+.tabbrowser-tab[visuallyselected=true]:hover,
+#tabbrowser-tabs:not([closebuttons=activetab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab:not([visuallyselected=true]):hover {
+  --tab-label-mask-size: 0 !important;
+}
+
+/* Disable tab label mask
+ * Proton default value = 2em
+ * This is a tweak. Photo does contain this mask.
+ */
+.tabbrowser-tab {
+  --tab-label-mask-size: 0 !important;
+}
+
+:root {
+	--tab-min-height: 33px !important;
+	--tabs-border-color: rgba(0,0,0,.3);
+	--tabs-navbar-shadow-size: 1px;
+}
