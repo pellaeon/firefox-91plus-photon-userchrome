@@ -26,9 +26,9 @@ This configuration contains a few non-Photon changes which I find convenient:
 
 This tweak is not perfect. I focused on undoing the most annoying change introduced in Proton:
 
-1. The larger meaningless margin on the tab bar and navigation bar. See [screenshot](https://github.com/pellaeon/firefox-91plus-photon-userchrome/blob/master/screenshots/Firefox%2091-minwidth50.png).
+1. The larger meaningless margin on the tab bar and navigation bar.
 2. "Tabs" don't look like tabs anymore. They should be connected to the parts below.
-3. `tabMinWidth` is so small that only the first character of the tab title is visible when you have many tabs open.
+3. `tabMinWidth` is so small that only the first character of the tab title is visible when you have many tabs open. See [screenshot](https://github.com/pellaeon/firefox-91plus-photon-userchrome/blob/master/screenshots/Firefox%2091-minwidth50.png).
 
 There are many other parts changed by Proton, but these are less annoying in my opinion. If I have time, I will also try to revert them as well.
 
@@ -37,3 +37,7 @@ This tweak has only been tested on macOS 11.5.1 so far. I will improve it for KD
 # Sources
 
 Most of the CSS files come from https://github.com/MrOtherGuy/firefox-csshacks , but I tweaked it further.
+
+# License
+
+Mozilla Public License 2.0
