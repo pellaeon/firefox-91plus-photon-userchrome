@@ -22,5 +22,5 @@ See the above repository for updates as well as full license text. */
   animation: tab-loading-line-anim 400ms alternate infinite ease-in-out;
 }
 
-.tab-throbber{ display: none }
+/*.tab-throbber{ display: none }*/
 .tab-icon-image[src]{ display: -moz-box }
