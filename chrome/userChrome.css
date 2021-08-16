@@ -3,6 +3,7 @@
 @import "photon_tab_separators.css";
 @import "iconized_main_menu.css";
 @import "tab_line_loading_indicator.css";
+@import "playing_icon.css";
 
 /* Enable urlbar border when focused */
 #urlbar:focus-within > #urlbar-background {

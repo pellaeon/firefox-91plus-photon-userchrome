@@ -21,6 +21,8 @@ This configuration contains a few non-Photon changes which I find convenient:
 1. `@import "tab_line_loading_indicator.css";`
 2. Disable the tab label mask, which makes the text label on the tab button hard to read.
 3. Proton's enlarged close button on tabs are kept.
+4. Media mute button on tabs does not replace the tab favicon, but it's not in the Photon style, which puts the mute button next to the left of close button.
+Because Proton changed the HTML structure of the mute button, it would be difficult to put the mute button back to the Photon position, so instead I moved the mute button to become "superscripted" to the favicon, similar to how Proton handle mute buttons on pinned tabs.
 
 # Notes
 

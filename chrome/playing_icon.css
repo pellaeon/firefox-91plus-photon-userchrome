@@ -1,0 +1,24 @@
+:root[uidensity=compact] .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) > :not(.tab-icon-overlay),
+#tabbrowser-tabs[secondarytext-unsupported] .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) > :not(.tab-icon-overlay),
+:root:not([uidensity=compact]) #tabbrowser-tabs:not([secondarytext-unsupported]) .tabbrowser-tab:not(:hover) .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]),
+:root:not([uidensity=compact]) #tabbrowser-tabs:not([secondarytext-unsupported]) .tabbrowser-tab:hover .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) > :not(.tab-icon-overlay) {
+  opacity: 1 !important;
+}
+
+.tab-icon-overlay:is([soundplaying], [muted]):not([crashed]) {
+  stroke: var(--tab-icon-overlay-stroke, black);
+  color: var(--tab-icon-overlay-fill, white);
+}
+
+.tab-icon-overlay:not([crashed]):is([soundplaying], [muted]) {
+  top: -5.5px;
+  inset-inline-end: -6px;
+  z-index: 1; /* Overlay tab title */
+  padding: 2px;
+}
+
+.tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) {
+  border-radius: revert !important;
+  fill-opacity: revert !important;
+  padding: revert !important;
+}
