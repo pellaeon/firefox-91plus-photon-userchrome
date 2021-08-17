@@ -39,7 +39,7 @@
 }
 
 :root {
-    --tab-min-height: 33px !important;
-    --tabs-border-color: rgba(0,0,0,.3);
-    --tabs-navbar-shadow-size: 1px;
+  --tab-min-height: 33px !important;
+  --tabs-border-color: rgba(0,0,0,.3);
+  --tabs-navbar-shadow-size: 1px;
 }
