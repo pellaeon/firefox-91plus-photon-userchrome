@@ -1,0 +1,8 @@
+/*** Tighten up drop-down/context/popup menu spacing ***/
+
+menupopup > menuitem, menupopup > menu {
+  padding-block: 4px !important;
+}
+:root {
+  --arrowpanel-menuitem-padding: 4px 8px !important;
+}
