@@ -3,6 +3,7 @@
 @import "photon_tab_separators.css";
 @import "iconized_main_menu.css";
 @import "tab_line_loading_indicator.css";
+@import "tighten_up_menus.css";
 @import "playing_icon.css";
 
 /* Enable urlbar border when focused */
@@ -38,7 +39,7 @@
 }
 
 :root {
-	--tab-min-height: 33px !important;
-	--tabs-border-color: rgba(0,0,0,.3);
-	--tabs-navbar-shadow-size: 1px;
+    --tab-min-height: 33px !important;
+    --tabs-border-color: rgba(0,0,0,.3);
+    --tabs-navbar-shadow-size: 1px;
 }
