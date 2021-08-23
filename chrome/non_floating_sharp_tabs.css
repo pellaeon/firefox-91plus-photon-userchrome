@@ -41,10 +41,11 @@ See the above repository for updates as well as full license text. */
 /* tabs newtab button needs some special styling... */
 #tabs-newtab-button{ padding-inline: 0 !important; }
 #tabbrowser-arrowscrollbox > #tabs-newtab-button > .toolbarbutton-icon{
-  border-radius: 0 !important; 
+  border-radius: 10 !important; 
   width: initial !important; 
   height: initial !important;
-  padding: 9px !important;
+  padding: 10px !important;
+  margin-left: 3px !important;
 }
 :root[uidensity="compact"] #tabbrowser-arrowscrollbox > #tabs-newtab-button > .toolbarbutton-icon{
   padding: 7px !important;

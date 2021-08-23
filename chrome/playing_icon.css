@@ -1,24 +1,100 @@
-:root[uidensity=compact] .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) > :not(.tab-icon-overlay),
-#tabbrowser-tabs[secondarytext-unsupported] .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) > :not(.tab-icon-overlay),
-:root:not([uidensity=compact]) #tabbrowser-tabs:not([secondarytext-unsupported]) .tabbrowser-tab:not(:hover) .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]),
-:root:not([uidensity=compact]) #tabbrowser-tabs:not([secondarytext-unsupported]) .tabbrowser-tab:hover .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) > :not(.tab-icon-overlay) {
+/* TAB SOUND ICON FIX */
+
+/* Sound Tab - Hide second label in tab title */
+.tab-secondary-label:is([soundplaying], [muted], [activemedia-blocked], [pictureinpicture]) {
+  display: none !important;
+}
+
+/* Sound Tab - Show with Favicons */
+/* Makes the favicons always visible (also on hover) */
+.tab-icon-image:not([pinned]) {
   opacity: 1 !important;
 }
 
-.tab-icon-overlay:is([soundplaying], [muted]):not([crashed]) {
-  stroke: var(--tab-icon-overlay-stroke, black);
-  color: var(--tab-icon-overlay-fill, white);
-}
+/* Makes the speaker icon to always appear if the tab is playing (not only on hover) */
+.tab-icon-overlay:not([crashed]),
+.tab-icon-overlay[pinned][crashed][selected] {
+  /* Position */
+  top: -6px !important;
+  inset-inline-end: -9px !important;
+  z-index: 1 !important;
 
-.tab-icon-overlay:not([crashed]):is([soundplaying], [muted]) {
-  top: -5.5px;
-  inset-inline-end: -6px;
-  z-index: 1; /* Overlay tab title */
-  padding: 2px;
+  /* Shape */
+  padding: 1.5px !important;
+  border-radius: 10px !important;
+  width: 17px !important;
+  height: 17px !important;
 }
-
+.tab-icon-overlay:not([sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) {
+  /* Color */
+  color: black !important;
+  stroke: color-mix(in srgb, white 85%, transparent) !important;
+  background: transparent !important;
+  fill-opacity: 0.99 !important;
+  opacity: 1 !important;
+}
 .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) {
-  border-radius: revert !important;
-  fill-opacity: revert !important;
-  padding: revert !important;
+  margin-inline-end: 9.5px !important;
+}
+
+/* None exist favicon - Size bigger */
+.tabbrowser-tab:not([image])
+  .tab-icon-overlay:not([pinned], [sharing], [crashed]) {
+  top: 0 !important;
+  inset-inline-end: 0 !important;
+  margin-inline-end: 5.5px !important;
+  padding: 2px 0 !important;
+}
+.tabbrowser-tab:not([image])
+  .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) {
+  box-sizing: content-box;
+  padding: 3px 0;
+
+  border-radius: 0 !important;
+}
+.tabbrowser-tab:not([image])
+  .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]):hover {
+  padding: 0;
+  border-radius: 10px !important;
+}
+
+/* Busy - Show */
+.tab-throbber[busy],
+.tab-icon-pending[busy] {
+  opacity: 1 !important;
+}
+
+/* Busy - Overlay Position */
+.tabbrowser-tab:not([pinned])[busy]
+  .tab-icon-overlay:is([soundplaying], [muted], [activemedia-blocked]) {
+  transform: translateX(-0.5px) translateY(-2.5px);
+}
+.tabbrowser-tab:not([image])
+  .tab-icon-overlay:not([pinned], [sharing], [crashed])[busy] {
+  top: -3.5px !important;
+  inset-inline-end: -9px !important;
+  margin-inline-end: 9.5px !important;
+  padding: 1.5px !important;
+}
+
+/* Hover */
+.tab-icon-overlay:not([crashed])[soundplaying]:hover,
+.tab-icon-overlay:not([crashed])[muted]:hover,
+.tab-icon-overlay:not([crashed])[activemedia-blocked]:hover {
+  color: white !important;
+  stroke: black !important;
+  background-color: black !important;
+  fill-opacity: 0.95 !important;
+}
+
+#TabsToolbar[brighttext] .tab-icon-overlay:not([crashed])[soundplaying]:hover,
+#TabsToolbar[brighttext] .tab-icon-overlay:not([crashed])[muted]:hover,
+#TabsToolbar[brighttext]
+  .tab-icon-overlay:not([crashed])[activemedia-blocked]:hover {
+  color: white !important;
+}
+
+.tabbrowser-tab:not([image])
+  .tab-icon-overlay:not([pinned], [sharing], [crashed]):hover {
+  padding: 0 !important;
 }

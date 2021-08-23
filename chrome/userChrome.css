@@ -5,6 +5,7 @@
 @import "tab_line_loading_indicator.css";
 @import "tighten_up_menus.css";
 @import "playing_icon.css";
+@import "tab_close_button.css";
 
 /* Enable urlbar border when focused */
 #urlbar:focus-within > #urlbar-background {
@@ -24,22 +25,8 @@
 }
 */
 
-/* Disable tab label mask on hover */
-.tabbrowser-tab[visuallyselected=true]:hover,
-#tabbrowser-tabs:not([closebuttons=activetab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab:not([visuallyselected=true]):hover {
-  --tab-label-mask-size: 0 !important;
-}
-
-/* Disable tab label mask
- * Proton default value = 2em
- * This is a tweak. Photo does contain this mask.
- */
-.tabbrowser-tab {
-  --tab-label-mask-size: 0 !important;
-}
-
 :root {
-  --tab-min-height: 33px !important;
+  --tab-min-height: 43px !important;
   --tabs-border-color: rgba(0,0,0,.3);
   --tabs-navbar-shadow-size: 1px;
 }
