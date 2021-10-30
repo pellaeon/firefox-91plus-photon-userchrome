@@ -45,7 +45,7 @@ See the above repository for updates as well as full license text. */
   width: initial !important; 
   height: initial !important;
   padding: 10px !important;
-  margin-left: 3px !important;
+  margin-left: 2px !important;
 }
 :root[uidensity="compact"] #tabbrowser-arrowscrollbox > #tabs-newtab-button > .toolbarbutton-icon{
   padding: 7px !important;
