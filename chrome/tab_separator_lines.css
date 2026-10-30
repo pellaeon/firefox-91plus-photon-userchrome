@@ -1,20 +1,64 @@
-/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/tab_separator_lines.css made available under Mozilla Public License v. 2.0
-See the above repository for updates as well as full license text. */
-
-/* Bring back tab separator lines that were removed in Proton */
-
-.tabbrowser-tab{
-  border-inline-end: 1px solid transparent !important;
-  border-image: 0 1 linear-gradient(
+:where(.tabbrowser-tab){
+  background-image: linear-gradient(
     transparent 20%,
     color-mix(in srgb, currentColor 20%, transparent) 20%,
     color-mix(in srgb, currentColor 20%, transparent) 80%,
     transparent 80%
   );
+  background-repeat: no-repeat;
+  background-size: 1px 100%;
 }
-
-.tabbrowser-tab:hover,
-.tabbrowser-tab[beforehovered],
-.tabbrowser-tab[selected],
-.tabbrowser-tab[last-visible-tab],
-.tabbrowser-tab[beforeselected-visible]{ border-image: none !important; }
+tab-split-view-wrapper{
+  background-size: 1px 100%;
+}
+@media -moz-pref("sidebar.verticalTabs"){
+  #tabbrowser-tabs{
+    --uc-vertical-tabs-expanded-separator: linear-gradient(to right,
+      transparent 10cqw,
+      color-mix(in srgb, currentColor 20%, transparent) 10cqw,
+      color-mix(in srgb, currentColor 20%, transparent) 90cqw,
+      transparent 90cqw
+    );
+  }
+  :where(.tabbrowser-tab){
+    background-image: linear-gradient(color-mix(in srgb, currentColor 20%, transparent));
+    background-size: 60% 1px;
+    background-position-x: center;
+  }
+  :where(#tabbrowser-tabs[expanded] .tabbrowser-tab){
+    background-image: var(--uc-vertical-tabs-expanded-separator);
+    background-size: 90cqw 1px;
+  }
+  #tabbrowser-tabs[expanded] > #pinned-tabs-container > .tabbrowser-tab{
+    background-image: none;
+  }
+  tab-split-view-wrapper{
+    background-size: 90cqw 1px;
+  }
+  #tabbrowser-tabs[expanded] tab-split-view-wrapper >.tabbrowser-tab:last-child{
+    background-size: 90cqw 1px;
+    background-image: var(--uc-vertical-tabs-expanded-separator);
+    @container vertical-tabs-container (min-width: 210px){
+      background-size: inherit;
+    }
+  }
+}
+tab-split-view-wrapper > .tabbrowser-tab{
+  background-size: inherit;
+}
+tab-split-view-wrapper > .tabbrowser-tab:last-child{
+  background-image: none;
+}
+tab-group > slot + :is(tab-split-view-wrapper,.tabbrowser-tab),
+tab-group[collapsed] + :is(tab-split-view-wrapper,.tabbrowser-tab),
+:is(tab-split-view-wrapper,.tabbrowser-tab):is([selected],[multiselected],[hasactivetab],:hover),
+:is(tab-split-view-wrapper,.tabbrowser-tab):is([selected],tab[multiselected],[hasactivetab],:hover) + :is(tab-split-view-wrapper,.tabbrowser-tab),
+tab-split-view-wrapper:has( > [multiselected]:last-child) + :is(tab-split-view-wrapper,.tabbrowser-tab),
+tab-group:has(> :last-of-type:is(:hover,[selected],[multiselected],[hasactivetab]) + vbox) + :is(tab-split-view-wrapper,.tabbrowser-tab),
+#pinned-tabs-container > :first-child,
+#pinned-tabs-container:empty ~ arrowscrollbox > :first-child,
+#tabbrowser-arrowscrollbox[overflowing] > :first-child,
+#pinned-tabs-container:has( > :last-child:is(:hover,[selected],[multiselected])) ~ arrowscrollbox > :first-child,
+#vertical-pinned-tabs-splitter:not([hidden]) ~ arrowscrollbox[orient="vertical"] > :first-child{
+  background-size: 0 0;
+}

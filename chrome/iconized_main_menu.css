@@ -2,12 +2,21 @@
 See the above repository for updates as well as full license text. */
 
 /* Adds icons to main menu items which were removed in Proton */
+#appMenu-zoom-controls::before,
 #appMenu-fxa-status2[fxastatus] > toolbarbutton::before,
-#appMenu-protonMainView > .panel-subview-body > toolbarbutton > image{
+:where(#appMenu-mainView) > .panel-subview-body > .subviewbutton > .toolbarbutton-icon{
   fill: currentColor;
   -moz-context-properties: fill;
   margin-inline: 0 8px !important;
 }
+#appMenu-zoom-controls::before,
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before{
+  display: flex;
+  content: "";
+  width: 16px;
+  height: 16px;
+}
+#appMenu-empty-profiles-button{ list-style-image: url("chrome://browser/skin/topsites.svg") }
 #appMenu-new-tab-button2{ list-style-image: url("chrome://browser/skin/new-tab.svg") }
 #appMenu-new-window-button2{ list-style-image: url("chrome://browser/skin/window.svg") }
 #appMenu-new-private-window-button2{ list-style-image: url("chrome://browser/skin/privateBrowsing.svg") }
@@ -20,26 +29,27 @@ See the above repository for updates as well as full license text. */
 #appMenu-save-file-button2{ list-style-image: url("chrome://browser/skin/save.svg") }
 #appMenu-find-button2{ list-style-image: url("chrome://global/skin/icons/search-glass.svg") }
 #appMenu-settings-button{ list-style-image: url("chrome://global/skin/icons/settings.svg") }
-#appMenu-more-button2{ list-style-image: url("chrome://browser/skin/developer.svg") }
-#appMenu-help-button2{ list-style-image: url(chrome://global/skin/icons/info.svg) }
-#appMenu-quit-button2{ list-style-image: url(chrome://browser/skin/quit.svg) }
-
-/* Use account-button icon for signed in sync item */
-#appMenu-fxa-status2[fxastatus] > toolbarbutton::before{
-  display: -moz-box;
-  content: "";
-  width: 16px;
-  height: 16px;
-  background-image: var(--avatar-image-url)
+#appMenu-more-button2{ list-style-image: url("chrome://global/skin/icons/developer.svg") }
+#appMenu-report-broken-site-button{ list-style-image: url("chrome://global/skin/icons/warning.svg") }
+#appMenu-help-button2{ list-style-image: url("chrome://global/skin/icons/info.svg") }
+#appMenu-quit-button2{
+  list-style-image: url("chrome://devtools/skin/images/search-clear.svg");
+  & > .toolbarbutton-icon{
+    stroke: transparent;
+    -moz-context-properties: fill,stroke;
+  }
 }
+#appMenu-translate-button{ list-style-image: url("chrome://browser/skin/translations.svg") }
+#appMenu-zoom-controls::before{ background-image: url("chrome://browser/skin/fullscreen.svg") }
+/* Use account-button icon for signed in sync item */
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before{ background-image: var(--avatar-image-url) }
 /* Add somewhat hacky separator to zoom controls so it looks consistent */
-#appMenu-protonMainView > .panel-subview-body::after{
+#appMenu-mainView > .panel-subview-body::after{
   content: "";
-  display: -moz-box;
+  display: flex;
   border-bottom: 1px solid var(--panel-separator-color);
   margin: var(--panel-separator-margin);
 }
-
-#appMenu-find-button2 ~ *{
-  -moz-box-ordinal-group: 2;
+#appMenu-translate-button ~ *{
+  order: 2;
 }
