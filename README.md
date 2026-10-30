@@ -6,13 +6,13 @@
  
 # Screenshots
 
-Firefox 78 ESR:
+Firefox 78 ESR, shown here as reference:
 
 ![Firefox 78 ESR](https://raw.githubusercontent.com/pellaeon/firefox-91plus-photon-userchrome/master/screenshots/Firefox%2078%20ESR.png)
 
-Firefox 91 with this userChrome.css:
+Firefox 159 with this userChrome.css:
 
-![Firefox 91 with this userChrome.css](https://raw.githubusercontent.com/pellaeon/firefox-91plus-photon-userchrome/master/screenshots/Firefox%2091-after.png)
+![Firefox 159](https://raw.github.com/pellaeon/firefox-91plus-photon-userchrome/master/screenshots/Firefox%20159%20after.png)
 
 # Additional tweaks
 
